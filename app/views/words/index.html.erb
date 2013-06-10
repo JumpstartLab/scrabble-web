@@ -1,0 +1,35 @@
+<h1>Scrabble-Web</h1>
+
+<% if flash[:notice] %>
+  <div id='flash'>
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<% if @last_word %>
+  <div id='last_word'>
+    <h3>Results</h3>
+    <div id='word'>
+      hello
+    </div>
+    <div id='score'>
+      8
+    </div>
+  </div>
+
+<% end %>
+
+<h3>Score a Word</h3>
+<%= form_for @new_word do |f| %>
+  <%= f.text_field :word %>
+  <%= f.submit "Score Word" %>
+<% end %>
+
+<div id="previous_words">
+  <h3>Previous Words</h3>
+  <ul>
+    <% @previous_words.each do |word| %>
+      <li><%= word.word %>: <%= word.score %></li>
+    <% end %>
+  </ul>
+</div>

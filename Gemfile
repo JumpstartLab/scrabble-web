@@ -6,8 +6,9 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'guard'
+  gem 'guard-rspec'
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :assets do
