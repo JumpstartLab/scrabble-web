@@ -13,7 +13,7 @@ describe Word do
     it "does not allow non-letters in words"
   end
 
-  describe '.compute_score' do
+  describe '#compute_score' do
     it "scores hello as 8"
   end
 end
