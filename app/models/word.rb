@@ -1,20 +1,4 @@
 class Word < ActiveRecord::Base
-  attr_accessible :word
-  validates_format_of :word, :with => /^[a-zA-Z]+$/
-
-  before_save :update_score
-
-  def update_score
-    self.score = compute_score
-  end
-
-  def compute_score
-    self.word.split("").collect{|letter| score_for(letter)}.inject(:+)
-  end
-
-  def score_for(letter)
-    letter_scores[letter.upcase]
-  end
 
   def letter_scores
     {"A"=>1, "B"=>3, "C"=>3, "D"=>2, "E"=>1, "F"=>4, "G"=>2, "H"=>4, "I"=>1, "J"=>8,
