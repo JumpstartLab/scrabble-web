@@ -1,0 +1,2 @@
+class Phrase
+end

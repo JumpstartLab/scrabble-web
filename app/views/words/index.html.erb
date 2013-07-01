@@ -6,14 +6,14 @@
   </div>
 <% end %>
 
-<% if @last_word %>
-  <div id='last_word'>
+<% if @last_phrase %>
+  <div id='last_phrase'>
     <h3>Results</h3>
-    <div id='word'>
-      <%= @last_word.word %>
+    <div id='phrase'>
+      <%= @last_phrase.phrase %>
     </div>
     <div id='score'>
-      <%= @last_word.score %>
+      <%= @last_phrase.score %>
     </div>
   </div>
 
@@ -22,14 +22,21 @@
 <h3>Score a Word</h3>
 <%= form_for @new_word do |f| %>
   <%= f.text_field :word %>
-  <%= f.submit "Score Word" %>
+  <%= f.submit "Score Phrase" %>
 <% end %>
 
-<div id="previous_words">
-  <h3>Previous Words</h3>
+<div id="previous_phrases">
+  <h3>Previous Phrase</h3>
   <ul>
-    <% @previous_words.each do |word| %>
-      <li><%= word.word %>: <%= word.score %></li>
+    <% @previous_phrases.each do |phrase| %>
+      <li><%= phrase.phrase %>: <%= phrase.score %></li>
+      <% if phrase.words.size > 1 %>
+        <ul>
+          <% phrase.words.each do |word| %>
+            <li><%= word.word %>: <%= word.score %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   </ul>
 </div>
