@@ -1,4 +1,6 @@
 describe Phrase do
+  it "has many words"
+
   describe "#phrase" do
     it "puts the words back together again"
   end
