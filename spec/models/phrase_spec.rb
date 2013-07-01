@@ -1,4 +1,10 @@
 describe Phrase do
+  describe "a new phrase" do
+    it "has an empty list of words" do
+      expect(Phrase.new.words).to eq([])
+    end
+  end
+
   it "has many words"
 
   describe "#phrase" do
