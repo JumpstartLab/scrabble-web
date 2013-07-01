@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Phrase do
   describe "a new phrase" do
     it "has an empty list of words" do
