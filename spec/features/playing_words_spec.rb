@@ -27,7 +27,7 @@ describe "recording the playing of a word" do
           click_link_or_button('Play')
         end
 
-        Timecop.freeze(Time.local) do
+        Timecop.freeze(Time.now) do
           expect(current_path).to eq '/words'
           within("#word-hello") do
             page.should have_content(Date.today.strftime("%D"))
