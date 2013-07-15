@@ -6,7 +6,7 @@ describe "recording the playing of a word" do
       before(:each) do
         visit '/words'
         fill_in 'word[word]', :with => 'hello'
-        click_link_or_button 'Score Phrase'
+        click_link_or_button 'Score'
       end
 
       xit "can record" do
