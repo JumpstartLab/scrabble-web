@@ -12,7 +12,7 @@ describe "recording the playing of a word" do
       xit "can record" do
         visit '/words'
         within("#word-hello") do
-          click_link_or_button('Record Play')
+          click_link_or_button('Play')
         end
 
         expect(current_path).to eq '/words'
@@ -24,7 +24,7 @@ describe "recording the playing of a word" do
       xit "has a time stamp" do
         visit '/words'
         within("#word-hello") do
-          click_link_or_button('Record Play')
+          click_link_or_button('Play')
         end
 
         Timecop.freeze(Time.local) do
@@ -39,7 +39,7 @@ describe "recording the playing of a word" do
         3.times do
           visit '/words'
           within("#word-hello") do
-            click_link_or_button('Record Play')
+            click_link_or_button('Play')
           end
         end
 
@@ -55,7 +55,7 @@ describe "recording the playing of a word" do
         [2, 1, 0].each do |offset|
           Timecop.freeze(Date.today - offset) do
             within("#word-hello") do
-              click_link_or_button('Record Play')
+              click_link_or_button('Play')
             end
           end
         end
