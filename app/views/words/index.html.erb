@@ -1,13 +1,13 @@
 <h1>Scrabble-Web</h1>
 
-<% if @last_phrase %>
-  <div id='last_phrase'>
+<% if @last_word %>
+  <div id='last_word'>
     <h3>Results</h3>
-    <div id='phrase'>
-      <%= @last_phrase.phrase %>
+    <div class='word'>
+      <%= @last_word.word %>
     </div>
-    <div id='score'>
-      <%= @last_phrase.score %>
+    <div class='score'>
+      <%= @last_word.score %>
     </div>
   </div>
 
@@ -16,21 +16,14 @@
 <h3>Score a Word</h3>
 <%= form_for @new_word do |f| %>
   <%= f.text_field :word %>
-  <%= f.submit "Score Phrase" %>
+  <%= f.submit "Score" %>
 <% end %>
 
-<div id="previous_phrases">
-  <h3>Previous Phrase</h3>
+<div id="previous_words">
+  <h3>Previous Words</h3>
   <ul>
-    <% @previous_phrases.each do |phrase| %>
-      <li><%= phrase.phrase %>: <%= phrase.score %></li>
-      <% if phrase.words.size > 1 %>
-        <ul>
-          <% phrase.words.each do |word| %>
-            <li><%= word.word %>: <%= word.score %></li>
-          <% end %>
-        </ul>
-      <% end %>
+    <% @previous_words.each do |word| %>
+      <li><%= word.word %>: <%= word.score %></li>
     <% end %>
   </ul>
 </div>
