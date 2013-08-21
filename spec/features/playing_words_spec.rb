@@ -49,10 +49,10 @@ describe "recording the playing of a word" do
         end
       end
 
-      xit "has multiple time stamps" do
+      xit "has multiple unique time stamps" do
         visit '/words'
 
-        [2, 1, 0].each do |offset|
+        [2, 2, 1, 0].each do |offset|
           Timecop.freeze(Date.today - offset) do
             within("#word-hello") do
               click_link_or_button('Play')
@@ -61,11 +61,11 @@ describe "recording the playing of a word" do
         end
 
         within("#word-hello") do
-          page.should have_content((Date.today - 2).strftime("%D"))
+          page.should have_content((Date.today - 2).strftime("%D"), :count => 1)
           page.should have_content((Date.today - 1).strftime("%D"))
           page.should have_content(Date.today.strftime("%D"))
         end
-      end
+      end 
     end
   end
 end
